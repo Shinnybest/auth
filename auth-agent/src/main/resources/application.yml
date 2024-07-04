@@ -1,0 +1,29 @@
+server:
+  port: 8094
+
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          shinnybest:
+            provider: shinnybest
+            client-id: shinnybest
+            client-secret: uCKZFvZotsGbj3zIn84dcUyIRHQMlsAr4f0Pm8EApIU
+            client-authentication-method: client_secret_basic
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, email
+            client-name: shinnybest
+        provider:
+          shinnybest:
+            issuer-uri: http://localhost:9010
+            jwk-set-uri: http://localhost:9010/oauth2/jwks
+            authorization-uri: http://localhost:9010/oauth2/authorize
+            token-uri: http://localhost:9010/oauth2/token
+            user-info-uri: http://localhost:9010/userinfo
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
