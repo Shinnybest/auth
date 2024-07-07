@@ -36,6 +36,13 @@ spring:
                 - email
             require-authorization-consent: true
 
+keystore:
+  password: abcd1234
+  path: ${JKS_PATH}
+key:
+  alias: apiEncryptionKey
+  password: abcd1234
+
 logging:
   level:
     org.springframework.security: DEBUG
